@@ -1,25 +1,18 @@
 <template>
-  <v-alert
-  class="mb-10"
-      color="dark"
-      dark
-      dense
-      :icon="icon"
-      prominent
-      border="left"
-      dismissible
-    >
+<v-container>
+  <v-alert class="mt-10" color="dark" dark dense :icon="icon" prominent border="left" dismissible >
       {{InfoText}}
-    </v-alert>
-</template>
+  </v-alert>  
+</v-container>
 
+</template>
 <script>
 export default {
 data(){
-    return{
-        InfoText:'Make sure to save your session before exiting or you will lose your data .',
-        icon:'mdi-information'
-    }
+  return{
+    InfoText:'Make sure to save your session before exiting or you will lose your data .',
+    icon:'mdi-information'
+  }
 },
 created(){
 // ON Deleting data message & icon 
@@ -37,8 +30,6 @@ this.$nuxt.$on('Save',()=>{
     this.InfoText='Data Saved !'
   }, 2000);
 })
-
-
 }
 }
 </script>
