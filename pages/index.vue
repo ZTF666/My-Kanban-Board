@@ -1,5 +1,5 @@
 <template>
-<v-card class="top" flat color="transparent">
+<v-card class="zx" flat color="transparent">
       <v-toolbar color="transparent">
         <template v-slot:extension>
           <v-tabs v-model="tabs" centered>
@@ -11,6 +11,7 @@
       <center>
           <v-img src="https://ztf-shop.web.app/9.png" height="200px" width="200px"></v-img>
       </center>
+      <ErrorBox :kolor='kolor' :icon='icon' :errorMsg='errorMsg' :alert='alert'/>
       <v-tabs-items v-model="tabs" class="transparent">
         <v-tab-item class="ma-10 ">
             <div>
@@ -49,6 +50,12 @@ import auth from "~/firebase-config/auth"
 export default {
 data(){
     return{
+        //errorBox props
+        kolor:null,
+        icon:null,
+        errorMsg:null,
+        alert:false,
+        //
         Login:null,
         Password:null,
         tabs:null,
@@ -71,9 +78,13 @@ methods:{
             localStorage.setItem('uid',cred.user.uid)
             location.assign('/MyBoard/')
         }))
-        .catch(err=>{ console.log(err.message) })
+        .catch(err=>{
+            this.setAlert('red',err.message,'mdi-alert-circle-outline')
+        })
         }
-        else{ alert('PLease fill out the required fields') }
+        else{ 
+            this.setAlert('orange','Please Fill the required fields !','mdi-alert-circle-outline')
+         }
     },
     Register(){
         if(this.$refs.formUp.validate()){
@@ -82,14 +93,21 @@ methods:{
             localStorage.setItem('uid',cred.user.uid)
             location.assign('/MyBoard/')
                     })
-            .catch((error) => { alert(error.message) })
+            .catch((error) => {
+                this.setAlert('red',error.message,'mdi-alert-circle-outline')
+            })
             }
+    },
+    setAlert(Z,T,F){
+        this.alert= true
+        this.kolor=Z
+        this.errorMsg=T
+        this.icon=F
     }
 }}
 </script>
-
 <style scoped>
-.top{
-  margin-top: -80vh;
+.zx{
+    z-index: 2;
 }
 </style>

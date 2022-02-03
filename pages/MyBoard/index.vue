@@ -1,5 +1,5 @@
 <template>
-<div>
+<v-app class="zx">
 <!-- <Particles /> -->
   <div class="top">
   <center>
@@ -32,7 +32,7 @@
       <v-container>
         <v-row>
           <v-col>
-            <v-sheet min-height="60vh" rounded="lg" >
+            <v-sheet min-height="60vh" rounded="lg" class="op" >
               <v-container>
                 <v-row>
 <!-- TODO -->
@@ -95,7 +95,7 @@
   </div>
 
 
-  </div>
+  </v-app>
 </template>
 
 <script>
@@ -331,8 +331,13 @@ created(){
 .list-group-item {
   cursor: move;
 }
-.top{
-  margin-top: -80vh;
+.zx{
+  z-index:1;
+  background: rgba(0, 0, 0, 0);
+}
+/* Opacity of the sheet that encapsulate the tasks */
+.op{
+  background: rgba(0, 0, 0, 0);
 }
 
 </style>

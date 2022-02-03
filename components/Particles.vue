@@ -1,6 +1,6 @@
 <template>
           <vue-particles
-          class="top"
+            class="tsparticles"
             color="#0afc2e"
             :particleOpacity="0.7"
             :particlesNumber="80"
@@ -22,14 +22,14 @@
 </template>
 
 <script>
-export default {
-
-}
+export default {}
 </script>
-
-<style scoped>
-.top{
-  margin-top: -50px;
-max-height: auto;
-}
-</style>
+<style>
+.tsparticles {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}</style>
