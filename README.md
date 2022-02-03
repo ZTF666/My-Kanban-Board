@@ -16,17 +16,23 @@ A more simplified rendition of my own kanban board, which i use to track stuff w
 <img src="kanban.gif" alt="demo kanban board"/>
 </div>
 
+## UPDATE V1.0
+
+| Features       | status |
+| -------------- | ------ |
+| Add tasks      | ✅     |
+| Delete Session | ✅     |
+| Save Session   | ✅     |
+
 ## UPDATE V2.0
 
 | Features                   | status |
 | -------------------------- | ------ |
-| Add tasks                  | ✅     |
-| Delete Session             | ✅     |
-| Save Session               | ✅     |
 | Login                      | ✅     |
 | Logout                     | ✅     |
 | Register                   | ✅     |
 | Unique Collection per user | ✅     |
+| Error Handeling make over  | ✅     |
 
 ### How To Use
 
