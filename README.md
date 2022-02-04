@@ -13,7 +13,8 @@ A more simplified rendition of my own kanban board, which i use to track stuff w
 ## Demo
 
 <div align="center">
-<img src="kanban.gif" alt="demo kanban board"/>
+<img src="readmeImgs/kanbanlog.png" alt="demo kanban board"/>
+<img src="readmeImgs/kanban-rework-board.png" alt="demo kanban board"/>
 </div>
 
 ## UPDATE V1.0
@@ -33,6 +34,7 @@ A more simplified rendition of my own kanban board, which i use to track stuff w
 | Register                   | ✅     |
 | Unique Collection per user | ✅     |
 | Error Handeling make over  | ✅     |
+| Tasks' css overhaul        | ✅     |
 
 ### How To Use
 

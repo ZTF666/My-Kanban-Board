@@ -330,6 +330,11 @@ created(){
 <style scoped>
 .list-group-item {
   cursor: move;
+  position: relative;
+display: block;
+padding: .75rem 1.25rem;
+margin-bottom: -1px;
+border: 1px solid rgba(0,0,0,.125);
 }
 .zx{
   z-index:1;
