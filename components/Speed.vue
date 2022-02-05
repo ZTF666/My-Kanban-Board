@@ -1,5 +1,5 @@
 <template>
-<div>
+<div >
     <v-speed-dial v-model="fab" bottom right class="pos">
       <template v-slot:activator>
         <v-btn v-model="fab" color="red"  fab >
@@ -27,7 +27,7 @@
     }),
   }
 </script>
-<style>
+<style scoped>
   .pos{
       position: fixed;
   }
