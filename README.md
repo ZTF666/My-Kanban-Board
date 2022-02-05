@@ -36,6 +36,20 @@ A more simplified rendition of my own kanban board, which i use to track stuff w
 | Error Handeling make over  | ✅     |
 | Tasks' css overhaul        | ✅     |
 
+## UPDATE V2.5
+
+| Features                   | status |
+| -------------------------- | ------ |
+| Change Password            | ✅     |
+| Reset Forgotten Password   | ✅     |
+| Toned down vibrant colours | ✅     |
+| Toggle Particles On/Off    | ✅     |
+| Floating Control Button    | ✅     |
+| Cleaner Code               | ✅     |
+
+<div align="center">
+<img src="readmeImgs/toggle.png" alt="Floating button"/>
+</div>
 ### How To Use
 
 ```bash
