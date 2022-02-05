@@ -1,6 +1,6 @@
 <template>
           <vue-particles
-            class="tsparticles"
+            :class="opacity"
             color="#0afc2e"
             :particleOpacity="0.7"
             :particlesNumber="80"
@@ -22,9 +22,33 @@
 </template>
 
 <script>
-export default {}
+export default {
+  data(){
+    return{
+      opacity:'tsparticles'
+    }
+  },
+  mounted(){
+    const op= localStorage.getItem('opacity')
+    if(op){
+    this.opacity=op
+    }
+  },
+  created(){
+    this.$nuxt.$on('toggleOpacity',()=>{
+    if(this.opacity=='tsparticles'){
+      localStorage.setItem('opacity','tsparticlesOp')
+      this.opacity='tsparticlesOp'
+    }else{
+      localStorage.setItem('opacity','tsparticles')
+      this.opacity='tsparticles'
+    }
+  })
+  }
+}
 </script>
 <style>
+/* visible particles */
 .tsparticles {
   position: fixed;
   width: 100%;
@@ -32,4 +56,14 @@ export default {}
   top: 0;
   left: 0;
   z-index: 0;
-}</style>
+}
+/* invisible particles */
+.tsparticlesOp {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+</style>

@@ -48,8 +48,8 @@
                   </v-col>
 <!-- WIP -->
                   <v-col cols="2.5" class="mt-5">
-                    <center><h1 class="orange--text">WiP</h1></center>
-                    <v-card flat color="orange" class="text-md-center">
+                    <center><h1 class="customGold">WiP</h1></center>
+                    <v-card flat color="#ce7510" class="text-md-center">
                       <draggable class="list-group" :list="wip" group="Tasks">
                         <div class="list-group-item" v-for="(element, index) in wip" :key="index" >
                           {{ element.name }} 
@@ -77,8 +77,8 @@
                   </v-col>
 <!-- DONE -->
                   <v-col cols="2.5"  class="mt-5">
-                    <center><h1 class="success--text">DONE</h1></center>
-                    <v-card flat color="success" class="text-md-center">
+                    <center><h1 class="customGreen">DONE</h1></center>
+                    <v-card flat color="#1a8c62" class="text-md-center">
                       <draggable v-model="done" group="Tasks" >
                         <div class="list-group-item" v-for="(element,index) in done" :key="index">{{element.name}}</div>
                       </draggable>
@@ -93,23 +93,17 @@
       </v-container>
   </v-main>
   </div>
-
-
+  <!-- FloatingButton -->
+  <Speed />
   </v-app>
 </template>
 
 <script>
 import db from '~/firebase-config/firestore'
-import auth from '~/firebase-config/auth'
 import draggable from 'vuedraggable'
-import Confirmation from '~/components/Confirmation.vue'
-import Particles from '~/components/Particles.vue'
+
 export default {
-components:{
-    draggable,
-    Confirmation,
-    Particles
-},
+components:{ draggable  },
 data(){
   return{
     task:null,
@@ -328,13 +322,21 @@ created(){
 </script>
 
 <style scoped>
+/* Done column Color */
+.customGreen{
+  color: #1a8c62;
+}
+/* WiP column color */
+.customGold{
+  color: #ce7510;
+}
 .list-group-item {
   cursor: move;
   position: relative;
-display: block;
-padding: .75rem 1.25rem;
-margin-bottom: -1px;
-border: 1px solid rgba(0,0,0,.125);
+  display: block;
+  padding: .75rem 1.25rem;
+  margin-bottom: -1px;
+  border: 1px solid rgba(0,0,0,.125);
 }
 .zx{
   z-index:1;

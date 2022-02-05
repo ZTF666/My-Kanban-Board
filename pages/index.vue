@@ -5,6 +5,7 @@
           <v-tabs v-model="tabs" centered>
             <v-tab class="green--text">Sign In</v-tab>
             <v-tab class="green--text">Sign Up</v-tab>
+            <v-tab class="green--text">Forgot Password</v-tab>
           </v-tabs>
         </template>
       </v-toolbar>
@@ -41,8 +42,18 @@
                 </v-form>
             </div>
         </v-tab-item>
+        <v-tab-item class="ma-10">
+            <div>
+                <v-form ref="formChp" lazy-validation>
+                    <v-text-field label="Email" required :rules="loginRules" v-model="Login" ></v-text-field>
+                    <center>
+                    <v-btn color="green"  @click.prevent="ForgotPwd()">Send</v-btn>              
+                    </center>
+                </v-form>
+            </div>
+        </v-tab-item>
       </v-tabs-items>
-    </v-card>
+</v-card>
 </template>
 
 <script>
@@ -90,13 +101,29 @@ methods:{
         if(this.$refs.formUp.validate()){
             auth.createUserWithEmailAndPassword(this.Login,this.Password)
             .then((cred)=>{
-            localStorage.setItem('uid',cred.user.uid)
-            location.assign('/MyBoard/')
-                    })
+                localStorage.setItem('uid',cred.user.uid)
+                location.assign('/MyBoard/')
+            })
             .catch((error) => {
                 this.setAlert('red',error.message,'mdi-alert-circle-outline')
             })
+            }else{
+            this.setAlert('orange','Please Fill the required fields !','mdi-alert-circle-outline')
             }
+    },
+    ForgotPwd(){
+        if(this.$refs.formChp.validate()){
+        auth.sendPasswordResetEmail(this.Login)
+        .then(() => {
+            this.setAlert('green',"Link Sent , Please check your inbox .",'mdi-check-outline')
+        })
+        .catch((error) => {
+            this.setAlert('red',error.code + '|' +error.message,'mdi-alert-circle-outline')
+        })
+        }else{
+            this.setAlert('orange','Please Fill the required fields !','mdi-alert-circle-outline')
+        }
+
     },
     setAlert(Z,T,F){
         this.alert= true
