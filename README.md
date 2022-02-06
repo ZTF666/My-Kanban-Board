@@ -47,9 +47,17 @@ A more simplified rendition of my own kanban board, which i use to track stuff w
 | Floating Control Button    | ✅     |
 | Cleaner Code               | ✅     |
 
+## UPDATE V2.6
+
+| Features           | status |
+| ------------------ | ------ |
+| Delete Account     | ✅     |
+| Delete Single Task | ✅     |
+
 <div align="center">
 <img src="readmeImgs/toggle.png" alt="Floating button"/>
 </div>
+
 ### How To Use
 
 ```bash
