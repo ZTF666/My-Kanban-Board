@@ -40,7 +40,7 @@
                     <center><h1 class="accent--text">TO DO</h1></center>
                     <v-card flat color="accent" class="text-md-center">
                       <draggable class="list-group" :list="toDo" group="Tasks">
-                        <div class="list-group-item" v-for="(element, index) in toDo" :key="index" >
+                        <div class="list-group-item" v-for="(element, index) in toDo" :key="index" @dblclick="popTaskTodo(element.id)"> 
                           {{ element.name }}
                         </div>
                       </draggable>
@@ -51,7 +51,7 @@
                     <center><h1 class="customGold">WiP</h1></center>
                     <v-card flat color="#ce7510" class="text-md-center">
                       <draggable class="list-group" :list="wip" group="Tasks">
-                        <div class="list-group-item" v-for="(element, index) in wip" :key="index" >
+                        <div class="list-group-item" v-for="(element, index) in wip" :key="index" @dblclick="popTaskWip(element.id)">
                           {{ element.name }} 
                         </div>
                       </draggable>
@@ -62,7 +62,9 @@
                     <center><h1 class="purple--text">TO TEST</h1></center>
                     <v-card flat color="purple" class="text-md-center">
                       <draggable v-model="toTest" group="Tasks" >
-                        <div class="list-group-item" v-for="(element,index) in toTest" :key="index">{{element.name}}</div>
+                        <div class="list-group-item" v-for="(element,index) in toTest" :key="index" @dblclick="popTaskToTest(element.id)">
+                          {{element.name}}
+                        </div>
                       </draggable>
                     </v-card>
                   </v-col>
@@ -71,7 +73,9 @@
                     <center><h1 class="red--text">REWORK</h1></center>
                     <v-card flat color="red" class="text-md-center">
                       <draggable v-model="reworkOrFix" group="Tasks" >
-                        <div class="list-group-item" v-for="(element,index) in reworkOrFix" :key="index">{{element.name}}</div>
+                        <div class="list-group-item" v-for="(element,index) in reworkOrFix" :key="index" @dblclick="popTaskFix(element.id)">
+                          {{element.name}}
+                        </div>
                       </draggable>
                     </v-card>
                   </v-col>
@@ -80,7 +84,9 @@
                     <center><h1 class="customGreen">DONE</h1></center>
                     <v-card flat color="#1a8c62" class="text-md-center">
                       <draggable v-model="done" group="Tasks" >
-                        <div class="list-group-item" v-for="(element,index) in done" :key="index">{{element.name}}</div>
+                        <div class="list-group-item" v-for="(element,index) in done" :key="index" @dblclick="popTaskDone(element.id)">
+                          {{element.name}}
+                        </div>
                       </draggable>
                     </v-card>
                   </v-col>
@@ -290,6 +296,22 @@ let save='save'
       window.location.reload()
     }, 2000);
     }
+  },
+  // Delete tasks from the arrays ! DATA IN THE DATABASE ISN'T AFFECTED UNLESS YOU SAVE YOUR SESSION !!!!
+  popTaskTodo(payload){
+    this.toDo = this.toDo.filter(item => item.id !== payload)
+  },
+  popTaskWip(payload){
+    this.wip = this.wip.filter(item => item.id !== payload)
+  },
+  popTaskToTest(payload){
+    this.toTest = this.toTest.filter(item => item.id !== payload)
+  },
+  popTaskFix(payload){
+    this.reworkOrFix = this.reworkOrFix.filter(item => item.id !== payload)
+  },
+  popTaskDone(payload){
+    this.done = this.done.filter(item => item.id !== payload)
   },
 },
 mounted(){

@@ -13,9 +13,14 @@
       <v-btn fab dark small color="transparent" @click="$nuxt.$emit('togglePChange','true')">
         <v-icon>mdi-form-textbox-password</v-icon>
       </v-btn>
+      <v-btn fab dark small color="transparent" @click="$nuxt.$emit('togglePDelete','true')">
+        <v-icon>mdi-delete-sweep-outline</v-icon>
+      </v-btn>
     </v-speed-dial>
     <!-- Change password component -->
     <ChangePassword  />
+    <!-- Delete Account Component -->
+    <DeleteAccount />
 </div>
 
 
