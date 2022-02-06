@@ -58,6 +58,12 @@ A more simplified rendition of my own kanban board, which i use to track stuff w
 <img src="readmeImgs/toggle.png" alt="Floating button"/>
 </div>
 
+### Deleting Tasks
+
+<div align="center">
+Double Clicking on a task will delete it from the array it's in , if you do not save your session aka save your data to the firestore, that action won't be taken into consideration .
+</div>
+
 ### How To Use
 
 ```bash
